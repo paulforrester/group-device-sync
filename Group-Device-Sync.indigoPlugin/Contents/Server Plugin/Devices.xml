@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- If your plugin defines device types, you can define them here.
+
+	 Devices must specify their type (via the type attribute):
+
+		relay (ON/OFF/STATUS)
+		dimmer (ON/OFF/DIM/BRIGHTEN/SET BRIGHTNESS/STATUS)
+		speedcontrol (ON/OFF/SET SPEED LEVEL/SET SPEED INDEX/INCREASE/DECREASE/STATUS)
+		sensor (ON/OFF/STATUS)
+		thermostat
+		sprinkler
+		custom
+
+	 The first six inherit states, actions and events from Indigo. You can
+	 also specify your own custom actions and additional states, if needed.
+
+	 The Device examples below specifies the a custom type and also enables
+	 the energy meter properties and states for the device. Note that
+	 energy meter properties can be enabled for any device type.
+	 
+	 Devices must also specify a unique typeID - so, for instance, if you define
+	 2 relay type devices then your plugin can distinguish between the two by
+	 the typeID.
+-->
+<Devices>
+	<Device type="dimmer" id="GroupSync-Dimmer">
+		<Name>Group Sync Dimmer</Name>
+		<ConfigUI>	
+			<Field id="label1" type="label" >
+				<Label>Create a Group Sync Device...</Label>
+			</Field>
+<!-- Common attributes -->	
+		
+            <Label>Select the Indigo Device(s) to synchronize</Label>
+<!--    Devces for state      -->				
+			<Field id='metaDevices' type='list'>
+				<Label>Devices</Label>
+				<List class="self" method="getDeviceList"/>
+			</Field>
+
+		</ConfigUI>
+	</Device>	
+	<Device type="relay" id="GroupSync-Switch">
+		<Name>Group Sync Switch</Name>
+		<ConfigUI>	
+			<Field id="label1" type="label" >
+				<Label>Create a Group Sync Device...</Label>
+			</Field>
+<!-- Common attributes -->	
+		
+            <Label>Select the Indigo Device(s) to synchronize</Label>
+<!--    Devces for state      -->				
+			<Field id='metaDevices' type='list'>
+				<Label>Devices</Label>
+				<List class="self" method="getDeviceList"/>
+			</Field>
+
+		</ConfigUI>
+	</Device>	
+</Devices>

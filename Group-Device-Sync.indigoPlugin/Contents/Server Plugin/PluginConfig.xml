@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<PluginConfig>	
+	
+	<!--<Field id="midLabel" type="label">
+		<Label>
+		Set the level of information recorded to the Indigo log.</Label>
+	</Field>
+	
+	<Field id="showDebugInfo1" type="menu" defaultValue="0">
+		<Label>Logging level</Label>
+		<List>
+			<Option value="0">None</Option>
+			<Option value="1">Normal</Option>
+			<Option value="2">Verbose</Option>
+			<Option value="3">Debug</Option>
+			<Option value="4">Intense Debug</Option>
+		</List>
+	</Field>
+	
+	<Field id="v0" type="label" visibleBindingId="showDebugInfo1" visibleBindingValue="0">
+		<Label>		No logging at all (not suggested)</Label>
+	</Field>
+	<Field id="v1" type="label" visibleBindingId="showDebugInfo1" visibleBindingValue="1">
+		<Label>		Normal operating events</Label>
+	</Field>
+	<Field id="v2" type="label" visibleBindingId="showDebugInfo1" visibleBindingValue="2">
+		<Label>		Detailed information</Label>
+	</Field>
+	<Field id="v3" type="label" visibleBindingId="showDebugInfo1" visibleBindingValue="3,4">
+		<Label>		If you are having problems with the plugin (or you are
+		instructed by support), you can enable debugging Use with 
+		caution. This level is not suggested for regular operation.</Label>
+	</Field>-->
+    <Field type="checkbox" id="hb_enabled" defaultValue="False">
+        <Label>Send updates to Homebridge-Indigo</Label>
+    </Field>
+    <Field type="textfield" id="hb_ip" defaultValue="127.0.0.1">
+        <Label>IP Address where Homebridge-Indigo is lisgening:</Label>
+    </Field>
+    <Field type="textfield" id="hb_port" defaultValue="8177">
+        <Label>Port on which Homebridge-Indigo is listening:</Label>
+    </Field>
+
+
+</PluginConfig>
