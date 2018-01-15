@@ -32,6 +32,8 @@ class Plugin(indigo.PluginBase):
 
         self.eventQueue = Queue.Queue(maxsize=1000)
         self.watchedDevices = {}
+        self.in_progress = {}
+        # example {123: {'brightness': 57, 'onOffState': True}
         self.device_ids = []
         self._nextAddress = 0
         self.changeInProgress = False
@@ -191,16 +193,14 @@ class Plugin(indigo.PluginBase):
             for k,v in props.iteritems():
                 if k == 'onOffState':
                     if v:
-                        commands_for_devs.append((indigo.device.turnOn, (dev.id,)))
+                        self.sendCommandToDevices('onState', True, [dev.id], indigo.device.turnOn)
                     else:
-                        commands_for_devs.append((indigo.device.turnOff, (dev.id,)))
+                        self.sendCommandToDevices('onState', False, [dev.id], indigo.device.turnOff)
                 elif k == 'brightnessLevel':
-                    commands_for_devs.append((indigo.dimmer.setBrightness, (dev.id, v)))
+                    self.sendCommandToDevices('brightness', v, [dev.id], indigo.dimmer.setBrightness, v)
                 else:
                     self.debugLog("%s Unsupported prop change:%s=%s" % (funcName, k, v))
-        for func, params in commands_for_devs:
-            func(*params)
-                
+
         #self.changeInProgress = False
         self.debugLog("%s complete Called change in progress:%s" % (funcName, self.changeInProgress))
 
